@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      .title {
+        margin-bottom: 16px;
+      }
+    </style>
+
+    <title>출제하기</title>
+  </head>
+  <body>
+    <form action="/polls/makequestion" method="post">
+      {% csrf_token %}
+
+      <label for="title">제목</label>
+      <input class="title" name="title" type="text" />
+
+      <!-- 선택지 : 3개 -->
+      <label for="select_1">선택지 1</label>
+      <input class="select_1" name="select_1" type="text" />
+      <label for="select_2">선택지 2</label>
+      <input class="select_2" name="select_2" type="text" />
+      <label for="select_3">선택지 3</label>
+      <input class="select_3" name="select_3" type="text" />
+
+      <!-- 정답 -->
+      <label for="answer">정답</label>
+      <input class="answer" name="answer" type="text" />
+
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<h3>오픈소스 과제 : Django를 이용한 시험지 만들기</h3>
+{% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li>
+    <a href="{% url 'polls:detail' question.id %}"
+      >{{ question.question_text }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+<button>
+  <a href="/polls/question">출제하기</a>
+</button>
+<button>
+  <a href="/polls/exam">응시하기</a>
+</button>
+<button>
+  <a href="/polls/results">통계보기</a>
+</button>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
